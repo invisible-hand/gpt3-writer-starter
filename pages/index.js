@@ -1,23 +1,100 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
 import buildspaceLogo from '../assets/buildspace-logo.png';
+import birthday from '../assets/birthday.png';
 
 const Home = () => {
+  const [userInput, setUserInput] = useState('');
+  const [apiOutput, setApiOutput] = useState('')
+  const [isGenerating, setIsGenerating] = useState(false)
+
+const callGenerateEndpoint = async () => {
+  setIsGenerating(true);
+  
+  console.log("Calling OpenAI...")
+  const response = await fetch('/api/generate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userInput }),
+  });
+
+  const data = await response.json();
+  const { output } = data;
+  console.log("OpenAI replied...", output.text)
+
+  setApiOutput(`${output.text}`);
+  setIsGenerating(false);
+}
+
+
+  const onUserChangedText = (event) => {
+    setUserInput(event.target.value);
+  };
+
+
   return (
     <div className="root">
       <Head>
-        <title>GPT-3 Writer | buildspace</title>
+        <title>Handrafted* greetings for perfect events! (* - it's a lie) </title>
       </Head>
+
+      
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>sup, insert your headline here</h1>
+            <h1> Greetings generator  <Image src={birthday} width="90"/>   
+</h1>
           </div>
           <div className="header-subtitle">
-            <h2>insert your subtitle here</h2>
+            <h2>Make every occasion special with AI-generated greetings</h2>
+            <p>Enter the name of the person(s), i.e. "Peter, Sarah" and an occasion, i.e. "90th birthday" or "new baby boy"</p>
+            <p>GPT3 will write a greting you can share on Facebook or Whatsapp. It will also attempt to tell a joke.  </p>
           </div>
         </div>
+        <div className="prompt-container">
+          <textarea 
+              placeholder="start typing here" 
+              className="prompt-box"
+              value={userInput}
+              onChange={onUserChangedText} />
+        </div>
+
+        <div className="prompt-buttons">
+  <a
+    className={isGenerating ? 'generate-button loading' : 'generate-button'}
+    onClick={callGenerateEndpoint}
+  >
+    <div className="generate">
+    {isGenerating ? <span class="loader"></span> : <p>Generate</p>}
+    </div>
+  </a>
+</div>
+
+
+
+
+        {apiOutput && (
+  <div className="output">
+    <div className="output-header-container">
+      <div className="output-header">
+        <h3>Output</h3>
       </div>
+    </div>
+    <div className="output-content">
+      <p>{apiOutput}</p>
+    </div>
+  </div>
+)}
+
+
+
+
+      </div>
+
+      
       <div className="badge-container grow">
         <a
           href="https://buildspace.so/builds/ai-writer"
