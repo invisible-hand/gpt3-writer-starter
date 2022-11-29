@@ -51,7 +51,7 @@ const callGenerateEndpoint = async () => {
           <div className="header-subtitle">
             <h2>Make every occasion special with AI-generated greetings</h2>
             <p>Enter the name of the person(s), i.e. "Peter, Sarah" and an occasion, i.e. "90th birthday" or "new baby boy"</p>
-            <p>GPT3 will write a greting you can share on Facebook or Whatsapp. It will also attempt to tell a joke.  </p>
+            <p>GPT3 will write a greeting you can share on Facebook or Whatsapp. It will also attempt to tell a joke.  </p>
           </div>
         </div>
         <div className="prompt-container">
