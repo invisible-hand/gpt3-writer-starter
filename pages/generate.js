@@ -36,8 +36,8 @@ const callGenerateEndpoint = async () => {
   // setTimeout('', 500);
   // doc.save("math.pdf");
   setTimeout(function(){
-    doc.save('test.pdf');
-    },1000);
+    doc.save('test-fix.pdf');
+    },2000);
 }
 
 
