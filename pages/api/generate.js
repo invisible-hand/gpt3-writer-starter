@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = "Write a greeting to a people listed below on an occasion listed below. Add a joke at the end but don\'t tell it\'s a joke. Make it smart and witty.";
+const basePromptPrefix = "create a math assignment for a 3rd grader, involving multiplication, division, addition and subtraction of numbers in the range of 1 to 20. create 15 tasks in the format: {number} {operation} {number} = ";
 
 const generateAction = async (req, res) => {
   // Run first prompt
