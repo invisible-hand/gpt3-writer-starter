@@ -33,9 +33,11 @@ const callGenerateEndpoint = async () => {
 
 
   doc.text(`Student: Mike \n` + `Grade: First to second\n` +`${output.text}`, 10, 10);
-  setTimeout('', 500);
-  doc.save("math.pdf");
-
+  // setTimeout('', 500);
+  // doc.save("math.pdf");
+  setTimeout(function(){
+    doc.save('test.pdf');
+    },1000);
 }
 
 
