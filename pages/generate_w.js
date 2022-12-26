@@ -4,19 +4,18 @@ import { jsPDF } from "jspdf";
 import Link from 'next/link';
 
 
-const Generate = () => {
+const Generate_w = () => {
   const [userInput, setUserInput] = useState('');
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
 
-  const doc = new jsPDF();
-
+  const doc = new jsPDF('p','in','letter');
 
 const callGenerateEndpoint = async () => {
   setIsGenerating(true);
 
   // console.log("Calling OpenAI...")
-  const response = await fetch('/api/generate', {
+  const response = await fetch('/api/generate_w', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,24 +31,20 @@ const callGenerateEndpoint = async () => {
   setIsGenerating(false);
 
 
-  doc.text(`Student: Mike \nGrade: First to second\n` +`${output.text}`, 15, 15);
-  doc.save("math.pdf");
+  const lines = doc.splitTextToSize(output.text, 7.5)
+
+  doc.text(0.5, 0.5, lines)
+  doc.save('Test.pdf')
 
 
-  // setTimeout(function(){
-  //   doc.save('test-fix.pdf');
-  //   },2000);
-    
+//   doc.text(`Student: Mike \nGrade: First to second\n` + `${output.text}`, 15, 15);
+//   doc.save("writing.pdf");
+
 
 
 
 
 }
-
-
-  // const onUserChangedText = (event) => {
-  //   setUserInput(event.target.value);
-  // };
 
 
 
@@ -71,7 +66,7 @@ const callGenerateEndpoint = async () => {
             >Home</Link>
 
 <Link 
-            href="/generate_w"
+            href="/generate"
             className='bg-blue-500 hover:bg-blue-700 text-sm text-white font-semibold ml-4 p-2 rounded-xl'
             >Writing</Link>
 
@@ -81,21 +76,19 @@ const callGenerateEndpoint = async () => {
             >Profile</Link>
 
           <div className="text-3xl mt-6">
-            <h1> Math assignments generator </h1>
+            <h1> Writing assignments generator </h1>
            
           </div>
 
           <div className="text-l mt-6">
             <p>Select what you want assigment to be</p>
-            <p><input type="checkbox" id="add" name="add" value="Addition" /> Addition</p>
-            <p><input type="checkbox" id="subt" name="subt" value="Subtraction" /> Subtraction</p>
-            <p><input type="checkbox" id="mult" name="mult" value="Multiplication" /> Multiplication</p>
-            <p><input type="checkbox" id="div" name="div" value="Division" /> Division</p>
+            <p><input type="checkbox" id="add" name="add" value="Science" /> Science</p>
+            <p><input type="checkbox" id="subt" name="subt" value="Animals" /> Animals</p>
+            <p><input type="checkbox" id="mult" name="mult" value="Random" /> Random</p>
            <br />
 
             <label htmlFor="s1">Select student level</label><p>
                 <select id="s1" size="1" className='m-2'>
-                <option>First to second grade</option>
                 <option>Third to fourth grade</option>
                 <option>Fifth to sixth grade</option>
                 </select>
@@ -152,7 +145,7 @@ const callGenerateEndpoint = async () => {
       </div>
     </div>
     <div className="text-m">
-      <pre>{apiOutput}</pre>
+      {apiOutput}
     </div>
          
 
@@ -171,4 +164,4 @@ const callGenerateEndpoint = async () => {
   );
 };
 
-export default Generate;
+export default Generate_w;
