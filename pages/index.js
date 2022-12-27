@@ -16,42 +16,23 @@ export default function Home() {
             <img className="h-8" src="grid-outline.svg" alt="" />
           </a>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex">
           
         </div>
-        <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
-          <a href="generate" className="font-semibold text-gray-900 hover:text-gray-900">Arithmetics</a>
+        <div className="lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+          <a href="generate" className="font-semibold text-gray-900 hover:text-gray-400 mr-2">Arithmetics</a>
 
-          <a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-900">Math</a>
+          <a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-400 mr-2 ml-2">Math</a>
 
-          <a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-900">Writing</a>
+          <a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-400 ml-2">Writing</a>
 
         </div>
-        <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+        <div className="lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
           <a href="#" className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Sign up</a>
         </div>
       </nav>
       <div role="dialog" aria-modal="true">
-        <div focus="true" className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
-          <div className="flex h-9 items-center justify-between">
-  
-           
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <a href="#" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Product</a>
 
-                <a href="#" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Features</a>
-
-                <a href="#" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Marketplace</a>
-
-                <a href="#" className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Company</a>
-              </div>
-
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

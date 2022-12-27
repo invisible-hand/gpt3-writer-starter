@@ -56,11 +56,11 @@ const Generate_m = () => {
             
           </div>
           <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
-          <a href="generate" className="font-semibold text-gray-900 hover:text-gray-900">Arithmetics</a>
+          <a href="generate" className="font-semibold text-gray-900 hover:text-gray-400 mr-2">Arithmetics</a>
 
-          <a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-900">Math</a>
+          <a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-400 mr-2 ml-2">Math</a>
 
-          <a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-900">Writing</a>
+          <a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-400 ml-2">Writing</a>
   
           </div>
           <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
