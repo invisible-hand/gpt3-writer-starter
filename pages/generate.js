@@ -56,6 +56,7 @@ const callGenerateEndpoint = async () => {
   return (
 
     <div className="isolate bg-white">
+         <title>Aibacus - screen free learning</title>
 
   <div className="px-6 pt-6 lg:px-8">
     <div>

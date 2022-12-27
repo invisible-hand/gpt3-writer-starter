@@ -4,7 +4,8 @@ import Link from 'next/link';
 export default function Home() {
     return (
         <>
-         
+         <title>Aibacus - screen free learning</title>
+
 <div className="isolate bg-white">
 
   <div className="px-6 pt-6 lg:px-8">
