@@ -42,16 +42,18 @@ export default function Home() {
         <div>
           
           <div>
-            <img src="main.png" className='mx-auto rounded-xl m-4 w-1/2'/>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl mt-16 mb-6">
             Experience the power of screen-free education
               </h1>
+              <img src="main.png" className='mx-auto rounded-xl mb-6 w-1/2'/>
+
+
             <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-center">
             We help K-12 studens to learn without screens. Instantly generate assignments and print them for self-study. Analyze and track student progress. Share your ideas with other parents.     
               
               </p>
             <div className="mt-8 flex gap-x-4 sm:justify-center">
-              <a href="/generate" className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
+              <a href="/generate" className="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold text-white shadow-lg ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
                 Demo
                 <span className="text-indigo-200" aria-hidden="true"> &rarr;</span>
               </a>
