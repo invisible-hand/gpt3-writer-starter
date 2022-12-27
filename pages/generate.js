@@ -33,7 +33,7 @@ const callGenerateEndpoint = async () => {
 
 
   doc.text(`Student: Mike \nGrade: First to second\n` +`${output.text}`, 15, 15);
-  doc.save("math.pdf");
+  doc.save("arithmetics.pdf");
 
 
   // setTimeout(function(){
@@ -54,47 +54,59 @@ const callGenerateEndpoint = async () => {
 
 
   return (
-    <div className="container mx-auto flex m-8 place-content-center">
 
-      
-      <Head>
-        <title>Aibacus - Create personalized homework assignments</title>
-      </Head>
+    <div className="isolate bg-white">
 
+  <div className="px-6 pt-6 lg:px-8">
+    <div>
+      <nav className="flex h-9 items-center justify-between" aria-label="Global">
+        <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+          <a href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Aibacus</span>
+            <img className="h-8" src="grid-outline.svg" alt="" />
+          </a>
+        </div>
+        <div className="flex lg:hidden">
+          
+        </div>
+        <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+        <a href="generate" className="font-semibold text-gray-900 hover:text-gray-900">Arithmetics</a>
+
+<a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-900">Math</a>
+
+<a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-900">Writing</a>
+
+        </div>
+        <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+          <a href="#" className="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Sign up</a>
+        </div>
+      </nav>
       
-      <div>
+    </div>
+  </div>
+  <main>
+    <div className="relative px-6">
+      <div className="mx-auto max-w-3xl pt-16">
+        <div>
+          
+        <div>
         <div className="header">
-
-        <Link 
-            href="/"
-            className='bg-blue-500 hover:bg-blue-700 text-sm text-white font-semibold ml-4 p-2 rounded-xl'
-            >Home</Link>
-
-<Link 
-            href="/generate_w"
-            className='bg-blue-500 hover:bg-blue-700 text-sm text-white font-semibold ml-4 p-2 rounded-xl'
-            >Writing</Link>
-
-<Link 
-            href="/"
-            className='bg-blue-500 hover:bg-blue-700 text-sm text-white font-semibold ml-4 p-2 rounded-xl'
-            >Profile</Link>
-
-          <div className="text-3xl mt-6">
-            <h1> Math assignments generator </h1>
-           
+          <div className="text-2xl font-semibold">
+            <h1> Arithmetics assignment generator </h1>
           </div>
 
           <div className="text-l mt-6">
-            <p>Select what you want assigment to be</p>
-            <p><input type="checkbox" id="add" name="add" value="Addition" /> Addition</p>
+            <p>Select operations to include in assignments</p>
+            <p><input type="checkbox" id="add" name="add" value="Addition" className=''/> Addition</p>
             <p><input type="checkbox" id="subt" name="subt" value="Subtraction" /> Subtraction</p>
             <p><input type="checkbox" id="mult" name="mult" value="Multiplication" /> Multiplication</p>
             <p><input type="checkbox" id="div" name="div" value="Division" /> Division</p>
            <br />
 
-            <label htmlFor="s1">Select student level</label><p>
-                <select id="s1" size="1" className='m-2'>
+            <label htmlFor="s1">Select student level</label>
+
+            <p>
+                <select id="s1" size="1" className='rounded-md p-2 mt-2 bg-white shadow-md ring-1 ring-black ring-opacity-5 focus:outline-none'>
                 <option>First to second grade</option>
                 <option>Third to fourth grade</option>
                 <option>Fifth to sixth grade</option>
@@ -102,18 +114,8 @@ const callGenerateEndpoint = async () => {
                 </p>
           </div>
         </div>
-        {/* <div>
-          <textarea
-              className="m-6 border-2 border-gray-300 rounded-xl" 
-              placeholder="for example: Grandma, 99 years " 
-              value={userInput}
-              onChange={onUserChangedText}
-              rows="4" cols="50"
-              />
-        </div> */}
 
         <div className="prompt-buttons">
-
 
         <div>
       { isGenerating ? (
@@ -128,21 +130,7 @@ const callGenerateEndpoint = async () => {
   
     </div>
 
-
-
-
- 
-
-
-          {/* <a >
-            <div className="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl">
-          <p>Generate</p>
-            </div>
-          </a> */}
         </div>
-
-
-
 
         {apiOutput && (
   <div className="text-l m-4">
@@ -163,9 +151,14 @@ const callGenerateEndpoint = async () => {
 
 
 
+      </div>    
+          
+        </div>
       </div>
+    </div>
+  </main>
 
-      
+
 
     </div>
   );

@@ -4,7 +4,7 @@ import { jsPDF } from "jspdf";
 import Link from 'next/link';
 
 
-const Generate_w = () => {
+const Generate_m = () => {
     const [userInput, setUserInput] = useState('');
     const [apiOutput, setApiOutput] = useState('')
     const [isGenerating, setIsGenerating] = useState(false)
@@ -15,7 +15,7 @@ const Generate_w = () => {
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
-    const response = await fetch('/api/generate_w', {
+    const response = await fetch('/api/generate_m', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const Generate_w = () => {
     const lines = doc.splitTextToSize(output.text, 150)
 
     doc.text(10, 10, lines)
-    doc.save('writing.pdf')
+    doc.save('math.pdf')
    
   }
  
@@ -58,9 +58,9 @@ const Generate_w = () => {
           <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
           <a href="generate" className="font-semibold text-gray-900 hover:text-gray-900">Arithmetics</a>
 
-<a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-900">Math</a>
+          <a href="generate_m" className="font-semibold text-gray-900 hover:text-gray-900">Math</a>
 
-<a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-900">Writing</a>
+          <a href="generate_w" className="font-semibold text-gray-900 hover:text-gray-900">Writing</a>
   
           </div>
           <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
@@ -78,18 +78,12 @@ const Generate_w = () => {
           <div>
           <div className="header">
             <div className="text-2xl font-semibold">
-              <h1> Writing assignment generator </h1>
+              <h1> Math assignment generator </h1>
             </div>
   
 
             <div className="text-l mt-6">
-            <p>Select a particular topic or leave as is for random</p>
-            <p><input type="checkbox" id="add" name="add" value="Addition" className=''/> Animals</p>
-            <p><input type="checkbox" id="subt" name="subt" value="Subtraction" /> Science</p>
-            <p><input type="checkbox" id="mult" name="mult" value="Multiplication" /> Memes</p>
-           <br />
-
-  
+             
               <label htmlFor="s1">Select student level</label>
   
               <p>
@@ -134,8 +128,7 @@ const Generate_w = () => {
     </div>
   )}
   
-  
-  
+ 
   
         </div>    
             
@@ -149,4 +142,4 @@ const Generate_w = () => {
       </div>
     );
   };
-export default Generate_w;
+export default Generate_m;
